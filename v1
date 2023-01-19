@@ -41,7 +41,7 @@ int main()
         sw2 = sw2 + ls[j];
         }
         count++;
-        if(ls[j] == ' ' && count > max_word){
+        if(ls[j+1] == ' ' && count > max_word){ // max word and count is wrong
             max_word = count;
             
             if(sw2 == lw){
