@@ -41,22 +41,20 @@ int main()
         sw2 = sw2 + ls[j];
         }
         count++;
-        if(ls[j+1] == ' ' && count > max_word){ // max word and count is wrong
-            max_word = count;
-            
-            if(sw2 == lw){
-                reverse(sw2.begin(),sw2.end());
-                lw = sw2;
-            }else{
-                 lw = sw2;
+        if(ls[j+1] == ' '){ 
+            if(count > max_word){
+                max_word = count;
+                if(sw2 == lw){
+                    reverse(sw2.begin(),sw2.end());
+                    lw = sw2;
+                }else{
+                    lw = sw2;
+                }
             }
             sw2 = "";
             count = 0;
         } 
-        if(sw2 == lw){
-                reverse(sw2.begin(),sw2.end());
-                lw = sw2;
-            }
+        
     }
     cout << ls << endl;
     cout << lw;
