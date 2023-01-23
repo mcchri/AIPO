@@ -7,7 +7,7 @@ Write your code in this editor and press "Run" button to compile and execute it.
 *******************************************************************************/
 
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 int main()
@@ -27,8 +27,15 @@ int main()
     c = stoi(cs);
     n = stoi(ns);
     for(int i = c;i<n;i++){
-        if(c%i==0){
-            cout << "TRUE" << endl;
+        if(i%c==0){
+            
+            for(int j = 0;j<i;j++){
+                if(!isnan(i/j)){
+                    cout << "a divisible";
+                }
+                
+                
+            } 
         }
         cout << i << endl;
     }
