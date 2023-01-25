@@ -8,11 +8,12 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int c,n,ok=0;
+    int c,n,ok=0,count=0;
     string sts,cs="",ns="";
     getline(cin, sts);
     for(int i = 0;i<sts.length();i++){
@@ -24,20 +25,19 @@ int main()
             ns = ns + sts[i];
         }
     }
-    c = stoi(cs);
-    n = stoi(ns);
-    for(int i = c;i<n;i++){
-        if(i%c==0){
-            
-            for(int j = 0;j<i;j++){
-                if(!isnan(i/j)){
-                    cout << "a divisible";
+        c = stoi(cs);
+        n = stoi(ns);
+        for(int i = c; i <= n;i++){
+            int a = i;
+            for(int j = c;j<=n;j++){
+                int b = j;
+                int gc = __gcd(a, b);
+                if(gc == c){
+                    count++;
                 }
-                
-                
-            } 
+            }
         }
-        cout << i << endl;
+        cout << "hi" << " " << count << endl;
+        cout << "gcd(6, 20) = " << __gcd(6, 20) << endl; // gcd(6,20) for C++17
+        return 0;
     }
-    return 0;
-}
