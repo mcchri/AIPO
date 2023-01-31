@@ -41,7 +41,7 @@ int main()
         sw2 = sw2 + ls[j];
         }
         count++;
-        if(ls[j+1] == ' ' || ls[j+1] == '/0'){ 
+        if(ls[j+1] == ' ' || ls[j+1] == '\0'){ 
             if(count > max_word){
                 max_word = count;
                 if(sw2 == lw){
