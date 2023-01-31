@@ -7,31 +7,24 @@ Write your code in this editor and press "Run" button to compile and execute it.
 *******************************************************************************/
 
 #include <iostream>
-#include <cmath>
-#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int ok,tw=0,P,x,n;
-    string sts,sts2,ns,xs;
-    getline(cin, sts);
-    for(int i = 0;i<sts.length();i++){
-        if(ok == 0 && sts[i] != ' '){
-            ns = ns + sts[i];
-        }else if(sts[i] == ' '){
-            ok++;
-        }else{
-            xs = xs + sts[i];
-        }
-    }
-        x = stoi(xs);
-        n = stoi(ns);
+    int ok,tw=0,P,Gandola=0;
+    long long x,n;
+    
+    cin >> n >> x;
     for(int j=0;j<n;j++){
         cin >> P;
         tw = tw + P;
     }
-        getline(cin, sts2);
-        cout << sts << " " << sts2;
+        
+        if(tw%x==0){
+           Gandola = tw/x; 
+        }else{
+            Gandola = (tw/x) + 1;
+        }
+        cout << Gandola;
         return 0;
 }
