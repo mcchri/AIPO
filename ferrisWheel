@@ -5,26 +5,28 @@
 Write your code in this editor and press "Run" button to compile and execute it.
 
 *******************************************************************************/
-
+#include <algorithm>
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int ok,tw=0,P,Gandola=0;
+    int ok,tw=0,P,Gandola=0,count=0,count_pair=0,single=0;
     long long x,n;
     
     cin >> n >> x;
+    int weight[n];
     for(int j=0;j<n;j++){
         cin >> P;
-        tw = tw + P;
+        weight[j] = P;
     }
-        
-        if(tw%x==0){
-           Gandola = tw/x; 
-        }else{
-            Gandola = (tw/x) + 1;
+    std:: sort(weight, weight + n);
+    for(int l=0;l<n/2;l++){
+        if((weight[l] + weight[n-1-l]) < x){
+            count_pair++;
         }
-        cout << Gandola;
+    }
+    Gandola = count_pair + n - (2 * count_pair);
+    cout << Gandola;
         return 0;
 }
