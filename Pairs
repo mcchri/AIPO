@@ -5,43 +5,44 @@
 Write your code in this editor and press "Run" button to compile and execute it.
 
 *******************************************************************************/
-
-#include <iostream>
-#include <cmath>
 #include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    int c,n,ok=0,count=0;
-    string sts,cs="",ns="";
-    getline(cin, sts);
-    for(int i = 0;i<sts.length();i++){
-        if(ok == 0 && sts[i] != ' '){
-            cs = cs + sts[i];
-        }else if(sts[i] == ' '){
-            ok++;
-        }else{
-            ns = ns + sts[i];
-        }
+    int ok,tw=0,P,Gandola=0,count=0,count_pair=0,single=0;
+    long long x,n;
+    
+    cin >> n >> x;
+    std::vector<int> weight(n);
+    for(int j=0;j<n;j++){
+        cin >> P;
+        weight[j] = P;
     }
-        c = stoi(cs);
-        n = stoi(ns);
-        int beg=0;
-        beg = c;
-        for(int i = c; i <= n;i++){
-            int a = i;
-            if(i%c==0){
-                for(int j = beg;j<=n;j++){
-                    int b = j;
-                    int gc = __gcd(a, b);
-                    if(gc == c){
-                        count++;
-                    }
-                }
-                beg+=beg;
+    std:: sort(weight.begin(), weight.end());
+    // for(int i=0;i<n;i++){
+    //     cout << weight[i] << " ";
+    // }
+    int i=0,j=n-1;
+    while(j>=i){
+        if(j==i){
+            if(weight[j] <= x){
+                Gandola++;
+                j=j-1;
             }
+        }else{
+            if(weight[j] + weight[i] <=x){
+                Gandola++;
+                i=i+1;
+                j=j-1;
+            }else{
+                Gandola++;
+                j=j-1;
+            }    
         }
-        cout << count << endl;
-        return 0;
     }
+    cout << Gandola;
+        return 0;
+}
